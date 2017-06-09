@@ -457,7 +457,7 @@ begin
        end ;
 
        }
-  Frm_IC_Main.Caption := '智能场地管理系统(SG3FV6.0_20160824)';
+  Frm_IC_Main.Caption := '智能场地管理系统_20170608';
        
   if not (LOAD_USER.ID_type = Copy(INit_Wright.Produecer_3F, 8, 2)) then
   begin
