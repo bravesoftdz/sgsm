@@ -348,7 +348,7 @@ end;
 //用户卡操作
 procedure Tfrm_Frontoperate_incvalue.prc_user_card_operation();
 begin
-  if true then
+  if IncValue_Enable then
            begin
 
               if (CheckBox_Update.Checked) then
@@ -362,13 +362,13 @@ begin
                 else
                 begin
                   Operate_No := 1;
-                  if checkMemberUserAndPassowrd then
+                   if checkMemberUserAndPassowrd then
                     INIT_Operation //调用连续充值写入ID函数
                    else
-                      begin
+                   begin
                         Panel_Message.Caption := '请输入正确密码！';
                         exit;
-                      end;
+                   end;
                 end;
 
               end;
@@ -1207,11 +1207,6 @@ begin
   Send_CMD_ID_Infor.CMD := StrCMD; //帧命令头部51
   Send_CMD_ID_Infor.ID_INIT := Receive_CMD_ID_Infor.ID_INIT;
 
-    //------------20120320追加写币有效期 开始-----------
-    //FormatDateTime('yyyy-MM-dd HH:mm:ss',now);
-    //Send_CMD_ID_Infor.ID_3F:=Receive_CMD_ID_Infor.ID_3F;
-    //Send_CMD_ID_Infor.Password_3F:=Receive_CMD_ID_Infor.Password_3F;
-
   if iHHSet = 0 then //时间限制设置无效
   begin
     Send_CMD_ID_Infor.ID_3F := IntToHex(0, 2) + IntToHex(0, 2) + IntToHex(0, 2);
@@ -1361,11 +1356,6 @@ begin
 
   Send_CMD_ID_Infor.ID_3F := IntToHex(iMonth, 2) + IntToHex(iHH, 2) + IntToHex(strtoint(Copy(strtemp, 3, 2)), 2);
   Send_CMD_ID_Infor.Password_3F := IntToHex(iDate, 2) + IntToHex(iMin, 2) + IntToHex(strtoint(Copy(strtemp, 1, 2)), 2);
-
-   //strtemp:=Copy(strtemp,6,2)+Copy(strtemp,12,2)+Copy(strtemp,3,2)+Copy(strtemp,9,2)+Copy(strtemp,15,2)+Copy(strtemp,1,2);
-    //Edit9.Text:=strtemp;
-    //Edit8.Text:=Send_CMD_ID_Infor.ID_3F+',,,'+Send_CMD_ID_Infor.Password_3F;
-    //
 
 end;
 
