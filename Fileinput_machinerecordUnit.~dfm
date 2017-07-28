@@ -22,7 +22,7 @@ object frm_Fileinput_machinerecord: Tfrm_Fileinput_machinerecord
     Top = 0
     Width = 645
     Height = 400
-    ActivePage = tbsConfig
+    ActivePage = Tab_Gamenameinput
     Align = alClient
     MultiLine = True
     Style = tsFlatButtons
